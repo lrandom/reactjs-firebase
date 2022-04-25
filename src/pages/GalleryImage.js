@@ -22,7 +22,7 @@ const GalleryImage = () => {
             const collectionRef = collection(db, 'images');
 
             const pathRef = ref(storage, fileName);
-            const url = await  getDownloadURL(pathRef);
+            const url = await getDownloadURL(pathRef);
             await addDoc(collectionRef, {
                 url: url
             });
@@ -44,13 +44,6 @@ const GalleryImage = () => {
             console.log(urls);
         })()
     }, []);
-
-/*    const getDownloadUrl = async (url) => {
-        const pathRef = ref(storage, url);
-        const data = await  getDownloadURL(pathRef);
-        console.log(data);
-        return data;
-    }*/
 
     return (
         <div>

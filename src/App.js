@@ -3,6 +3,7 @@ import './App.css';
 import List from './pages/todos/List';
 import Add from "./pages/todos/Add";
 import Edit from "./pages/todos/Edit";
+import Login from "./pages/Login";
 import {
     Route,
     Routes,
@@ -20,6 +21,7 @@ function App() {
                     <Route path="/add" element={<Add/>}/>
                     <Route path="/edit" element={<Edit/>}/>
                     <Route path="/gallery" element={<GalleryImage/>}/>
+                    <Route path="/login" element={<Login/>}/>
                 </Routes>
             </BrowserRouter>
         </>
