@@ -8,6 +8,7 @@ import {
     Routes,
     Link, BrowserRouter
 } from "react-router-dom";
+import GalleryImage from "./pages/GalleryImage";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     <Route path="/" element={<List/>}/>
                     <Route path="/add" element={<Add/>}/>
                     <Route path="/edit" element={<Edit/>}/>
+                    <Route path="/gallery" element={<GalleryImage/>}/>
                 </Routes>
             </BrowserRouter>
         </>

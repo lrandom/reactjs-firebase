@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useEffect} from "react";
 import {db} from "../../firebase";
-import {collection, getDocs, deleteDoc, doc, onSnapshot} from 'firebase/firestore';
+import {collection, getDocs, deleteDoc, doc, onSnapshot, limit, query, orderBy, where} from 'firebase/firestore';
 import {Link} from "react-router-dom";
 
 const List = () => {
@@ -18,7 +18,8 @@ const List = () => {
             //subscribe vào observable của data
             //observable / pub-sub
 
-            unsub = onSnapshot(collectionRef, (snapShot) => {
+            const collectionQuery = query(collectionRef, where('message', '==', 'HIHI', 'desc'), limit(3));
+            unsub = onSnapshot(collectionQuery, (snapShot) => {
                 const localTodos = [];
                 console.log("Có sự thay đổi dữ liệu");
                 snapShot.forEach(doc => {
@@ -30,14 +31,14 @@ const List = () => {
                 setTodos(localTodos);
             });
 
-            /*     const localTodos = [];
-                 collectionSnapShot.forEach(doc => {
-                     localTodos.push(
-                         {
-                             id: doc.id,
-                             message: doc.data().message
-                         });
-                 });*/
+            /*const localTodos = [];*/
+            /*      collectionSnapShot.forEach(doc => {
+                      localTodos.push(
+                          {
+                              id: doc.id,
+                              message: doc.data().message
+                          });
+                  });*/
 
         })();
     }, []);
