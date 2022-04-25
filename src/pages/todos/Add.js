@@ -1,10 +1,24 @@
 import React, {useState} from 'react';
 import {db} from "../../firebase";
+import {collection, addDoc} from "firebase/firestore";
 
 const Add = () => {
     const [message, setMessage] = useState('');
-    const addNote = () => {
-        
+    const addNote = async () => {
+        if (!message) {
+            alert("Nhập vào rồi hãy submit bạn ơi");
+            return;
+        }
+        const collectionRef = collection(db, 'todos');
+        try {
+            await addDoc(collectionRef, {
+                message
+            });
+        } catch (e) {
+            console.log(e);
+        }
+
+        setMessage('')
     }
     return (
         <div>
@@ -12,7 +26,7 @@ const Add = () => {
             <input type="text"
                    onChange={(evt) => setMessage(evt.target.value)}
                    value={message}/>
-            <button>Add Note</button>
+            <button onClick={addNote}>Add Note</button>
         </div>
     );
 };
