@@ -1,6 +1,5 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
-import * as buffer from "buffer";
 
 export const getHome = createAsyncThunk(
     "products/getHome",
