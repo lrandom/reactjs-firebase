@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from "react-redux";
-import {getHome} from "../actions/products";
+//import {getHome} from "../actions/products";
+import {getHome} from "../slices/productSlice";
 
 const Home = () => {
     const productData = useSelector(state => state.product);

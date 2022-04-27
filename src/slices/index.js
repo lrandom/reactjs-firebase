@@ -1,5 +1,7 @@
 import counterReducer from "./counterSlice";
+import productSlice from "./productSlice";
 
 export const reducers = {
-    counter: counterReducer
+    counter: counterReducer,
+    product: productSlice
 }
