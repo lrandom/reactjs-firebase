@@ -4,11 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
-import {applyMiddleware, createStore} from 'redux';
-import rootReducer from './reducers/index';
-import thunk from "redux-thunk";
+//import {applyMiddleware, createStore} from 'redux';
+//import rootReducer from './reducers/index';
+//import thunk from "redux-thunk";
+//const store = createStore(rootReducer,applyMiddleware(thunk)); //tạo một cái store
+import {reducers} from "./slices";
+import {configureStore} from "@reduxjs/toolkit";
 
-const store = createStore(rootReducer,applyMiddleware(thunk)); //tạo một cái store
+const store = configureStore({
+    reducer: reducers
+});
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>

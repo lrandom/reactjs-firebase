@@ -1,5 +1,7 @@
 import React from 'react';
 import {useSelector, useDispatch} from "react-redux";
+import {increment, decrement} from "./../slices/counterSlice";
+
 
 const Counter = () => {
     const count = useSelector(state => state.counter.count);//trích xuất state count từ count reducer
@@ -8,13 +10,12 @@ const Counter = () => {
         <div>
             <h1>Counter</h1>
             <p>{count}</p>
-
             <div>
-                <button onClick={() => dispatch({type: 'counter/increment', payload: {step: 10}})}>+</button>
-                <button onClick={() => dispatch({type: 'counter/decrement', payload: {step: 1}})}>-</button>
-                    </div>
-                    </div>
-                    );
-                };
+                <button onClick={() => dispatch(increment())}>+</button>
+                <button onClick={() => dispatch(decrement())}>-</button>
+            </div>
+        </div>
+    );
+};
 
-                export default Counter;
+export default Counter;
