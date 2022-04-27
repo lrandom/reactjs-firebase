@@ -5,6 +5,7 @@ import Add from "./pages/todos/Add";
 import Edit from "./pages/todos/Edit";
 import Login from "./pages/Login";
 import Counter from "./pages/Counter";
+import Home from "./pages/Home";
 import {
     Route,
     Routes,
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/gallery" element={<GalleryImage/>}/>
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/counter" element={<Counter/>}/>
+                    <Route path="/home" element={<Home/>}/>
                 </Routes>
             </BrowserRouter>
         </>
