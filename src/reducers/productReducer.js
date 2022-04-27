@@ -12,7 +12,6 @@ export default function productReducer(state = initState, action) {
                 isLoading: true
             }
         case 'product/GET_HOME_DATA_SUCCESS':
-            console.log("Test");
             return {
                 ...state,
                 homeData: action.payload,
