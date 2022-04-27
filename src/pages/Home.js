@@ -14,14 +14,16 @@ const Home = () => {
     return (
         <div>
             <h1>Home</h1>
-            {(isLoading || error) ? <div>Đang tải</div> :
-                lastProducts.map(product => (
-                    <div key={product.id}>
-                        <h3>{product.name}</h3>
-                    </div>
-                ))
 
-            }
+
+            {isLoading && <div>Đang tải</div>}
+            {error && <div>Lỗi</div>}
+            {lastProducts &&
+            lastProducts.map(product => (
+                <div key={product.id}>
+                    <h3>{product.name}</h3>
+                </div>
+            ))}
         </div>
     );
 };
